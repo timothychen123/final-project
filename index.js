@@ -15,9 +15,22 @@ function draw() {
   noStroke();
   rect(width - 50, 0, 22, 20);
   time();
-  fill(0);
+  fill(255, 0, 0); //red
+  ellipse(20, 180, 20, 20);
+  fill(255, 128, 0); //orange
+  ellipse(20, 210, 20, 20);
+  fill(255, 255, 0); //yellow
+  ellipse(20, 240, 20, 20);
+  fill(0, 255, 0); //green
+  ellipse(20, 270, 20, 20);
+  fill(0, 255, 255); //blue
+  ellipse(20, 300, 20, 20);
+  fill(0, 64, 128); //indigo
+  ellipse(20, 330, 20, 20);
+  fill(128, 0, 128); //purple
+  ellipse(20, 360, 20, 20);
   fill(0, 0, 0);
-  rect(30, 20, 20, 20);
+  ellipse(20, 390, 20, 20);
 
   if (mouseIsPressed) {
     var px = pmouseX,
@@ -28,13 +41,45 @@ function draw() {
       if (y > 530 && y < 550) penwidth = 1;
       else if (y > 550 && y < 570) penwidth = 3;
       else if (y > 570 && y < 590) penwidth = 5;
+      else if (y > 160 && y < 200) {
+        r = 255;
+        g = 0;
+        b = 0; //red
+      } else if (y > 190 && y < 230) {
+        r = 255;
+        g = 128;
+        b = 0; //orange
+      } else if (y > 220 && y < 260) {
+        r = 255;
+        g = 255;
+        b = 0; //yellow
+      } else if (y > 250 && y < 290) {
+        r = 0;
+        g = 255;
+        b = 0; //green
+      } else if (y > 280 && y < 320) {
+        r = 0;
+        g = 255;
+        b = 255; //blue
+      } else if (y > 310 && y < 350) {
+        r = 0;
+        g = 64;
+        b = 128;
+      } //indigo
+      else if (y > 330 && y < 360) {
+        r = 128;
+        g = 0;
+        b = 128;
+      } //purple
     } else {
-      strokeWeight(penwidth);
-      stroke(r, g, b);
-      line(px, py, x, y);
+      if (pen == 1) {
+        strokeWeight(penwidth);
+        stroke(r, g, b);
+        line(px, py, x, y);
+      }
     }
-
   }
+
   if (keyIsPressed)
     if (keyCode == BACKSPACE) {
       fill(255);
@@ -52,10 +97,15 @@ function time() {
     timer --;
   }
  if (timer == 0) {
-   save('myCanvas.jpg');
    textAlign(CENTER, CENTER);
-   text("DRAWING OVER", width/2, height/2);
+   text("DRAWING OVER! Press s to save your image.", width/2, height/2);
  }
+}
+
+function keyTyped() {
+  if (key == 's') {
+    saveCanvas('photo', 'png');
+  }
 }
 
 function randomWord() {
@@ -64,6 +114,8 @@ function randomWord() {
     'Goose with a hat',
     'Dog with a blog',
     'Man wearing a watch',
+    'Licking Chicken',
+    'Fruit with a foot',
   ];
 
   var wordNum = Math.floor(Math.random() * theWord.length);
