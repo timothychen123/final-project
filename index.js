@@ -66,11 +66,16 @@ function draw() {
         g = 64;
         b = 128;
       } //indigo
-      else if (y > 330 && y < 360) {
+      else if (y > 340 && y < 380) {
         r = 128;
         g = 0;
         b = 128;
       } //purple
+      else if (y > 370 && y < 410) {
+        r = 0;
+        g = 0;
+        b = 0;
+      } //black
     } else {
       if (pen == 1) {
         strokeWeight(penwidth);
