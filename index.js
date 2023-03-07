@@ -16,21 +16,21 @@ function draw() {
   rect(width - 50, 0, 22, 20);
   time();
   fill(255, 0, 0); //red
-  ellipse(10, 180, 20, 20);
+  ellipse(20, 180, 20, 20);
   fill(255, 128, 0); //orange
-  ellipse(10, 210, 20, 20);
+  ellipse(20, 210, 20, 20);
   fill(255, 255, 0); //yellow
-  ellipse(10, 240, 20, 20);
+  ellipse(20, 240, 20, 20);
   fill(0, 255, 0); //green
-  ellipse(10, 270, 20, 20);
+  ellipse(20, 270, 20, 20);
   fill(0, 255, 255); //blue
-  ellipse(10, 300, 20, 20);
+  ellipse(20, 300, 20, 20);
   fill(0, 64, 128); //indigo
-  ellipse(10, 330, 20, 20);
+  ellipse(20, 330, 20, 20);
   fill(128, 0, 128); //purple
-  ellipse(10, 360, 20, 20);
+  ellipse(20, 360, 20, 20);
   fill(0, 0, 0);
-  ellipse(10, 390, 20, 20);
+  ellipse(20, 390, 20, 20);
 
   if (mouseIsPressed) {
     var px = pmouseX,
