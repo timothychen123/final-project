@@ -15,6 +15,12 @@ function draw() {
   noStroke();
   rect(width - 50, 0, 22, 20);
   time();
+  noFill();
+  stroke(0);
+  strokeWeight(1);
+  rect(0, 530, 20, 20);
+  rect(0, 550, 20, 20);
+  rect(0, 570, 20, 20);
   fill(255, 0, 0); //red
   ellipse(20, 180, 20, 20);
   fill(255, 128, 0); //orange
@@ -31,6 +37,11 @@ function draw() {
   ellipse(20, 360, 20, 20);
   fill(0, 0, 0);
   ellipse(20, 390, 20, 20);
+  fill(0);
+  stroke(0);
+  ellipse(10, 540, 5, 5);
+  ellipse(10, 560, 7.5, 7.5);
+  ellipse(10, 580, 10, 10);
 
   if (mouseIsPressed) {
     var px = pmouseX,
@@ -121,6 +132,18 @@ function randomWord() {
     'Man wearing a watch',
     'Licking Chicken',
     'Fruit with a foot',
+    'Swiss Cheese',
+    'Plane Ticket',
+    'Chat GPT',
+    'Fidget Spinner',
+    'Spotify',
+    'Figma',
+    'Nerf gun',
+    'Nintendo Switch',
+    'Blanket',
+    'Exploding Kittens',
+    'Jenga',
+    'Uno',
   ];
 
   var wordNum = Math.floor(Math.random() * theWord.length);
