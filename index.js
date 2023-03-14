@@ -3,7 +3,13 @@ var pen = 1;
 var r = 0,
   g = 0,
   b = 0;
-let timer = 60;
+
+let btn = document.getElementById("option1");
+console.log(btn);
+console.log(window.myContentDiv);
+var timer = sessionStorage.getItem('time');
+console.log(timer);
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -21,22 +27,24 @@ function draw() {
   rect(0, 530, 20, 20);
   rect(0, 550, 20, 20);
   rect(0, 570, 20, 20);
-  fill(255, 0, 0); //red
+  fill(255, 0, 0);
   ellipse(20, 180, 20, 20);
-  fill(255, 128, 0); //orange
+  fill(255, 128, 0);
   ellipse(20, 210, 20, 20);
-  fill(255, 255, 0); //yellow
+  fill(255, 250, 0);
   ellipse(20, 240, 20, 20);
-  fill(0, 255, 0); //green
+  fill(0, 255, 0);
   ellipse(20, 270, 20, 20);
-  fill(0, 255, 255); //blue
+  fill(0, 255, 255);
   ellipse(20, 300, 20, 20);
-  fill(0, 64, 128); //indigo
+  fill(0, 64, 128);
   ellipse(20, 330, 20, 20);
-  fill(128, 0, 128); //purple
+  fill(128, 0, 128);
   ellipse(20, 360, 20, 20);
   fill(0, 0, 0);
   ellipse(20, 390, 20, 20);
+  fill(255, 255, 255);
+  ellipse(20, 420, 20, 20);
   fill(0);
   stroke(0);
   ellipse(10, 540, 5, 5);
@@ -55,15 +63,15 @@ function draw() {
       else if (y > 160 && y < 200) {
         r = 255;
         g = 0;
-        b = 0; //red
+        b = 0;
       } else if (y > 190 && y < 230) {
         r = 255;
         g = 128;
-        b = 0; //orange
+        b = 0;
       } else if (y > 220 && y < 260) {
         r = 255;
         g = 255;
-        b = 0; //yellow
+        b = 0;
       } else if (y > 250 && y < 290) {
         r = 0;
         g = 255;
@@ -71,22 +79,27 @@ function draw() {
       } else if (y > 280 && y < 320) {
         r = 0;
         g = 255;
-        b = 255; //blue
+        b = 255;
       } else if (y > 310 && y < 350) {
         r = 0;
         g = 64;
         b = 128;
-      } //indigo
+      }
       else if (y > 340 && y < 380) {
         r = 128;
         g = 0;
         b = 128;
-      } //purple
+      }
       else if (y > 370 && y < 410) {
         r = 0;
         g = 0;
         b = 0;
-      } //black
+      }
+      else if (y > 400 && y < 440) {
+        r = 255;
+        g = 255;
+        b = 255;
+      }
     } else {
       if (pen == 1) {
         strokeWeight(penwidth);
@@ -114,12 +127,17 @@ function time() {
   }
  if (timer == 0) {
    textAlign(CENTER, CENTER);
-   text("DRAWING OVER! Press s to save your image.", width/2, height/2);
+   text("DRAWING OVER! Press s to save your image. Have your friend guess the drawing!", width/2, height/2);
+   noLoop();
+   fill(255);
+   noStroke();
+   rect(width/2 - 80, 0, 400, 30)
  }
 }
 
 function keyTyped() {
   if (key == 's') {
+
     saveCanvas('photo', 'png');
   }
 }
@@ -144,6 +162,9 @@ function randomWord() {
     'Exploding Kittens',
     'Jenga',
     'Uno',
+    'HTML',
+    'CSS',
+    'Javascript',
   ];
 
   var wordNum = Math.floor(Math.random() * theWord.length);
