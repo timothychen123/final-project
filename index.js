@@ -5,10 +5,7 @@ var r = 0,
   b = 0;
 
 let btn = document.getElementById("option1");
-console.log(btn);
-console.log(window.myContentDiv);
 var timer = sessionStorage.getItem('time');
-console.log(timer);
 
 
 function setup() {
