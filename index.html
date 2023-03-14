@@ -1,23 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Prototype</title>
-      <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-      <style>
-        body {
-          margin: 0;
-          overflow: hidden;
+<head>
+
+    <title>Drawing Game</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="index.js">
+    </script>
+    <!--Stylesheets-->
+    <style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: tan;
+}
+.popup{
+    background-color: #ffffff;
+    width: 420px;
+    padding: 30px 40px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    font-family: "Poppins",sans-serif;
+    display: none;
+    text-align: center;
+}
+#close{
+    display: block;
+    margin:  0 0 20px auto;
+    background-color: transparent;
+    font-size: 30px;
+    color: #ffffff;
+    background: black;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.popup h2{
+  margin-top: -20px;
+}
+.popup p{
+    font-size: 14px;
+    text-align: justify;
+    margin: 20px 0;
+    line-height: 25px;
+}
+a{
+    display: block;
+    width: 150px;
+    position: relative;
+    margin: 10px auto;
+    text-align: center;
+    background-color: black;
+    border-radius: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 0;
+}
+    </style>
+</head>
+<body>
+    <div class="popup">
+        <button id="close">&times;</button>
+        <h2>Drawing Game</h2>
+        <p>
+          Welcome to a drawing game, choose a time below for how long you'd like to draw a random word:
+        </p>
+        <button id="option1" onclick="displayTime('30')">30 Seconds</button>
+        <button id="option2" onclick="displayTime('60')">60 Seconds</button>
+        <button id="option3" onclick="displayTime('90')">90 Seconds</button>
+        <div id="selected-time"></div>
+        <div id="time"></div>
+        <br>
+        <a href="drawing.html">Let's Go</a>
+    </div>
+    <!--Script-->
+    <script>
+      function displayTime(time) {
+        document.getElementById("selected-time").innerHTML = "Selected time: ";
+        sessionStorage.setItem("time", time);
+        console.log(time);
+      }
+      var myContentDiv = document.getElementById("time");
+      const timeOption1Button = document.getElementById("option1");
+      const timeOption2Button = document.getElementById("option2");
+      const timeOption3Button = document.getElementById("option3");
+      timeOption1Button.addEventListener("click", function() {
+        myContentDiv.innerHTML = "30";
+        console.log(myContentDiv.innerHTML);
+      });
+
+      timeOption2Button.addEventListener("click", function() {
+        myContentDiv.innerHTML = "60";
+      });
+
+      timeOption3Button.addEventListener("click", function() {
+        myContentDiv.innerHTML = "90";
+      });
+    </script>
+    <script type="text/javascript">
+window.addEventListener("load", function(){
+    setTimeout(
+        function open(event){
+            document.querySelector(".popup").style.display = "block";
         }
-      </style>
-      <!-- <link rel="stylesheet" href="styles.css" /> -->
-    </head>
-    <body>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
-      <script src="index.js"></script>
-    </body>
+    )
+});
+
+
+document.querySelector("#close").addEventListener("click", function(){
+    document.querySelector(".popup").style.display = "none";
+});
+    </script>
+</body>
 </html>
